@@ -79,7 +79,6 @@ function applyStyles(element) {
 
     if (element) {
         
-        console.log(element);
         if (document.getElementById("SWisbgColor").checked){
             element.style.backgroundColor = bgColor;
         }
@@ -104,11 +103,26 @@ function applyStyles(element) {
     
 }
 
+const getOS = () => {
+    const userAgent = window.navigator.userAgent;
+    os = "unknown";
+
+    if (userAgent.indexOf("Win") !== -1) os = "Windows";
+    else if (userAgent.indexOf("Mac") !== -1) os = "MacOS";
+    else if (userAgent.indexOf("Linux") !== -1) os = "Linux";
+
+    return os;
+
+};
+
 
 document.addEventListener("click", function(event){
-    console.log("Clicked")
+
     if (started == false && clickedButton == false) {
-        if (event.ctrlKey) {
+
+        os = getOS();
+
+        if ((os == "Windows" && event.ctrlKey) || (os == "MacOS" && event.metaKey) || (os == "Linux" && event.ctrlKey)) {
             started = true;
             let selectedElement = document.elementFromPoint(lastMouseX, lastMouseY);
         

@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "style",
-    title: "Activate Styling (Ctrl + click element)",
+    title: "Activate Styling",
     contexts: ["all"]
   });
 });
