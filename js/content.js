@@ -1,14 +1,6 @@
-lastMouseX = 0;
-lastMouseY = 0;
-
 started = false;
 clickedButton = false;
 
-
-document.addEventListener("mousemove", (event) => {
-    lastMouseX = event.clientX;
-    lastMouseY = event.clientY;
-})
 
 function openStyleDialog(element) {
     const dialog = document.createElement("div");
@@ -97,8 +89,7 @@ function applyStyles(element) {
         if (document.getElementById("SWisremove").checked){
             element.remove();
         }
-        
-        element = null;
+
     }
     
 }
@@ -124,7 +115,7 @@ document.addEventListener("click", function(event){
 
         if ((os == "Windows" && event.ctrlKey) || (os == "MacOS" && event.metaKey) || (os == "Linux" && event.ctrlKey)) {
             started = true;
-            let selectedElement = document.elementFromPoint(lastMouseX, lastMouseY);
+            let selectedElement = event.target;
         
             if (selectedElement) {
                 let selector = selectedElement.tagName.toLowerCase();

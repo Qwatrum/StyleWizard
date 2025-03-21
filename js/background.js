@@ -8,7 +8,6 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "style") {
-    styling = true;
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       files: ["js/content.js"]

@@ -13,10 +13,9 @@
     "128": "icons/icon128.png"
   },
   "permissions": [
-      "contextMenus", 
-      "activeTab", 
+      "contextMenus",
       "scripting"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["*://*/*"],
   "action": {
       "default_popup": "html_css/popup.html"
   }
